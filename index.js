@@ -277,4 +277,8 @@ app.listen(port, () => {
 
 app.get('/', (req, res) => {
     res.send("Hello 4000 server baby");
+}); 
+
+app.get('/hello', (req, res) => {
+    res.send("Hello");
 });
