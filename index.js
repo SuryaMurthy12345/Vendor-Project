@@ -164,9 +164,11 @@ app.get('/all-Vendors', async (req, res) => {
         const vendors = await Vendor.find().populate('firmids');
         res.json({ vendors });
     } catch (err) {
+        console.error('Error fetching vendors:', err); // Improved error logging
         res.status(500).json({ err: "Internal Server Error" });
     }
 });
+
 
 app.get('/:firmid/products', async (req, res) => {
     try {
