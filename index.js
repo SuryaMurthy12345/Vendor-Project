@@ -14,7 +14,11 @@ const multer = require('multer');
 
 mongoose.connect(process.env.mongodb_uri)
     .then(() => console.log("MongoDB Connected Successfully"))
-    .catch(err => console.log(err));
+    .catch(err => {
+        console.error("MongoDB Connection Error:", err);
+        process.exit(1); // Exit the application if the database connection fails
+    });
+
 
 app.use(bodyParser.json());
 
